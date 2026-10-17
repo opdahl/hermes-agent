@@ -286,6 +286,10 @@ DEFAULT_CONFIG = {
         # `reasoning_echo: true` on a `model:` or `fallback_providers:` entry for a custom gateway
         # proxying one of them. Strict providers (Mistral, Groq, Cerebras) never get the field.
         "reasoning_echo": False,
+        # Reasoning effort for the main model: "none" | "minimal" | "low" | "medium" | "high" |
+        # "xhigh" | "max" | "ultra" (empty = provider default). Per-model overrides live in
+        # reasoning_overrides. See hermes_constants.parse_reasoning_effort.
+        "reasoning_effort": "",
         # Turn liveness watchdog: a turn with no observable progress for `timeout_s` seconds is
         # logged, force-interrupted so the UI can retry, and its lease stops renewing so stale-turn
         # cleanup can reclaim the session even if the interrupt can't unwind a wedged frame.
